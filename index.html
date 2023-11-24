@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VACA-LOUCA</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        border: solid 1px black;
+        overflow: hidden;
+      }
+
+      img {
+        cursor: pointer;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vaca Louca</h1>
+    <p style="background-color: lightgray">
+      Veja como identificar se a sua vaca está com a doença da VACA-LOUCA
+    </p>
+    <div>
+      <img
+        src="/public/image/cow.jpg"
+        id="img-0"
+        alt="Imagem 1"
+        style="width: 450px"
+        onclick="playAudio('/public/sound/cow.mp3')"
+      />
+      <img
+        src="/public/image/cow.jpg"
+        id="img-1"
+        alt="Imagem 2"
+        onclick="test('/public/sound/crazyCow.mp3')"
+        style="width: 450px"
+      />
+    </div>
+
+    <script>
+      function playAudio(audioPath) {
+        let audio = new Audio(audioPath);
+        audio.play();
+      }
+
+      function changeImage() {
+        let image = document.getElementById('image');
+        image.src = '/public/image/crazyCow.png';
+      }
+
+      function test() {
+        let image = document.getElementById('img-1');
+        image.src = '/public/image/crazyCow.png';
+        playAudio('/public/sound/crazyCow.mp3');
+        setTimeout(() => {
+          image.src = '/public/image/cow.jpg';
+        }, 16000);
+      }
+    </script>
+  </body>
+</html>
